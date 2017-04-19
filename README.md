@@ -1,9 +1,14 @@
-# api documentation for  [mongoose-timestamp (v0.6.0)](https://github.com/drudge/mongoose-timestamp#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-mongoose-timestamp.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mongoose-timestamp) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mongoose-timestamp.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mongoose-timestamp)
+# npmdoc-mongoose-timestamp
+
+#### api documentation for  [mongoose-timestamp (v0.6.0)](https://github.com/drudge/mongoose-timestamp#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-mongoose-timestamp.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mongoose-timestamp) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mongoose-timestamp.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mongoose-timestamp)
+
 #### Mongoose plugin that adds createdAt and updatedAt auto-assigned date properties
 
-[![NPM](https://nodei.co/npm/mongoose-timestamp.png?downloads=true)](https://www.npmjs.com/package/mongoose-timestamp)
+[![NPM](https://nodei.co/npm/mongoose-timestamp.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/mongoose-timestamp)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-mongoose-timestamp/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-mongoose-timestamp_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-mongoose-timestamp/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-mongoose-timestamp/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-mongoose-timestamp/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-mongoose-timestamp/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-mongoose-timestamp/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-mongoose-timestamp/build/screenCapture.npmPackageListing.svg)
 
@@ -17,8 +22,7 @@
 
 {
     "author": {
-        "name": "Nicholas Penree",
-        "email": "nick@penree.com"
+        "name": "Nicholas Penree"
     },
     "bugs": {
         "url": "https://github.com/drudge/mongoose-timestamp/issues"
@@ -55,13 +59,11 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "drudge",
-            "email": "nick@penree.com"
+            "name": "drudge"
         }
     ],
     "name": "mongoose-timestamp",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/drudge/mongoose-timestamp.git"
@@ -72,16 +74,6 @@
     "version": "0.6.0"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module mongoose-timestamp](#apidoc.module.mongoose-timestamp)
-
-
-
-# <a name="apidoc.module.mongoose-timestamp"></a>[module mongoose-timestamp](#apidoc.module.mongoose-timestamp)
 
 
 
