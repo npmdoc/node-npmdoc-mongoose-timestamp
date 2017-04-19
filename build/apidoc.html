@@ -61,12 +61,120 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.mongoose-timestamp">module mongoose-timestamp</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mongoose-timestamp.mongoose-timestamp">
+            function <span class="apidocSignatureSpan"></span>mongoose-timestamp
+            <span class="apidocSignatureSpan">(schema, options)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.mongoose-timestamp" id="apidoc.module.mongoose-timestamp">module mongoose-timestamp</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mongoose-timestamp.mongoose-timestamp" id="apidoc.element.mongoose-timestamp.mongoose-timestamp">
+        function <span class="apidocSignatureSpan"></span>mongoose-timestamp
+        <span class="apidocSignatureSpan">(schema, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function timestampsPlugin(schema, options) {
+    var updatedAt = &#x27;updatedAt&#x27;;
+    var createdAt = &#x27;createdAt&#x27;;
+    var updatedAtOpts = Date;
+    var createdAtOpts = Date;
+    var dataObj = {};
+
+    if (typeof options === &#x27;object&#x27;) {
+        if (typeof options.updatedAt === &#x27;string&#x27;) {
+           updatedAt = options.updatedAt;
+        } else if (typeof options.updatedAt === &#x27;object&#x27;) {
+            updatedAtOpts = defaults(options.updatedAt, {
+                name: updatedAt,
+                type: Date
+            });
+            updatedAt = updatedAtOpts.name;
+        }
+
+        if (typeof options.createdAt === &#x27;string&#x27;) {
+            createdAt = options.createdAt;
+        } else if (typeof options.createdAt === &#x27;object&#x27;) {
+            createdAtOpts = defaults(options.createdAt, {
+                name: createdAt,
+                type: Date
+            });
+            createdAt = createdAtOpts.name;
+        }
+    }
+
+    dataObj[updatedAt] = updatedAtOpts;
+
+    if (schema.path(createdAt)) {
+	schema.add(dataObj);
+	schema.virtual(createdAt)
+	    .get( function () {
+		if (this[&#x22;_&#x22; + createdAt]) return this[&#x22;_&#x22; + createdAt];
+		return this[&#x22;_&#x22; + createdAt] = this._id.getTimestamp();
+	    });
+	schema.pre(&#x27;save&#x27;, function (next) {
+	    if (this.isNew) {
+		this[updatedAt] = this[createdAt];
+	    } else if (this.isModified()) {
+		this[updatedAt] = new Date;
+	    }
+	    next();
+	});
+
+    } else {
+	dataObj[createdAt] = createdAtOpts;
+	schema.add(dataObj);
+	schema.pre(&#x27;save&#x27;, function (next) {
+	    if (!this[createdAt]) {
+		this[createdAt] = this[updatedAt] = new Date;
+	    } else if (this.isModified()) {
+		this[updatedAt] = new Date;
+	    }
+	    next();
+	});
+    }
+
+    schema.pre(&#x27;findOneAndUpdate&#x27;, function (next) {
+	if (this.op === &#x27;findOneAndUpdate&#x27;) {
+	    this._update = this._update || {};
+	    this._update[updatedAt] = new Date;
+	    this._update[&#x27;$setOnInsert&#x27;] = this._update[&#x27;$setOnInsert&#x27;] || {};
+	    this._update[&#x27;$setOnInsert&#x27;][createdAt] = new Date;
+	}
+	next();
+    });
+
+    schema.pre(&#x27;update&#x27;, function(next) {
+	if (this.op === &#x27;update&#x27;) {
+	    this._update = this._update || {};
+	    this._update[updatedAt] = new Date;
+	    this._update[&#x27;$setOnInsert&#x27;] = this._update[&#x27;$setOnInsert&#x27;] || {};
+	    this._update[&#x27;$setOnInsert&#x27;][createdAt] = new Date;
+	}
+	next();
+    });
+
+    if(!schema.methods.hasOwnProperty(&#x27;touch&#x27;))
+	schema.methods.touch = function(callback){
+	    this[updatedAt] = new Date;
+	    this.save(callback)
+	}
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
