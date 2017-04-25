@@ -1,6 +1,6 @@
 # npmdoc-mongoose-timestamp
 
-#### api documentation for  [mongoose-timestamp (v0.6.0)](https://github.com/drudge/mongoose-timestamp#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-mongoose-timestamp.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mongoose-timestamp) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mongoose-timestamp.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mongoose-timestamp)
+#### basic api documentation for  [mongoose-timestamp (v0.6.0)](https://github.com/drudge/mongoose-timestamp#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-mongoose-timestamp.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mongoose-timestamp) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mongoose-timestamp.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mongoose-timestamp)
 
 #### Mongoose plugin that adds createdAt and updatedAt auto-assigned date properties
 
@@ -71,7 +71,8 @@
     "scripts": {
         "test": "mocha -u bdd -R spec -c ./test/*test.js"
     },
-    "version": "0.6.0"
+    "version": "0.6.0",
+    "bin": {}
 }
 ```
 
